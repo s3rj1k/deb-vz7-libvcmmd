@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	./autogen.sh
+	dh_auto_configure	
+
+override_dh_auto_install:
+	dh_auto_install
+
+	# libvzevent1
+#	mkdir -p $(CURDIR)/debian/libvzevent1/usr/lib/${DEB_HOST_MULTIARCH}
+#	find $(CURDIR)/debian/tmp/usr/lib -type l -exec mv {} $(CURDIR)/debian/libvzevent1/usr/lib/${DEB_HOST_MULTIARCH} \;
+#	install -m 755 -p $(CURDIR)/debian/tmp/usr/lib/libvzevent.* $(CURDIR)/debian/libvzevent1/usr/lib/${DEB_HOST_MULTIARCH}

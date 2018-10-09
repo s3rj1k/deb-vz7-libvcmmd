@@ -1,0 +1,2 @@
+# ignore changelog bug, not debian upstream package
+libvcmmd0: new-package-should-close-itp-bug

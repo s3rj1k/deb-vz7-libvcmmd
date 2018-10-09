@@ -1,0 +1,25 @@
+Source: libvcmmd
+Section: libs
+Priority: optional
+Maintainer: s3rj1k <evasive.gyron@gmail.com>
+Build-Depends: debhelper (>= 9), libdbus-1-dev
+Standards-Version: 3.9.6
+
+Package: libvcmmd-dev
+Section: libdevel
+Architecture: amd64
+Depends: libvcmmd0 (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: OpenVZ command library
+ OpenVZ command library, component of OpenVZ
+ .
+ This package contains headers for OpenVZ command library.
+
+Package: libvcmmd0
+Architecture: amd64
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: OpenVZ command library
+ OpenVZ command library, component of OpenVZ
+ .
+ This package contains OpenVZ command library.
